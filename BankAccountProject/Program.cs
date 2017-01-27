@@ -10,6 +10,11 @@ namespace BankAccountProject
     {
         static void Main(string[] args)
         {
+            
+                Accounts myAccount = new Accounts();
+                myAccount.getBalance();
+                Console.ReadKey();
+            
         }
     }
 }
