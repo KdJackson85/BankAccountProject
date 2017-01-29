@@ -10,9 +10,12 @@ namespace BankAccountProject
     {
         static void Main(string[] args)
         {
+            Checking myChecking = new Checking();
+            Savings mySavings = new Savings();
+            Reserve myReserve = new Reserve();
             
                 Accounts myAccount = new Accounts();
-                myAccount.getBalance();
+               
                 Console.ReadKey();
             
         }

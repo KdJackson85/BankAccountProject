@@ -9,25 +9,26 @@ namespace BankAccountProject
     class Accounts
     {
         //***Fields***
-        protected double deposit;
-        protected double withdrawal;
-        protected double interest;
-        protected double balance;
+        private double deposit;
+        private double withdrawal;
+        private double balance;
+        private string accountType;
+        private string firstName;
+        private string lastName;
 
 
         //Constructors//
 
         public Accounts()
         {
-            double balance = (1000.00);
+            this.balance = (1000.00);
         }
 
         public Accounts(double deposit, double withdrawal, double interest)
         {
             this.deposit = deposit;
-            this.withdrawal = withdrawal;
-            this.interest = interest;
-            double startingBalance = (1000.00);
+            this.withdrawal = withdrawal; 
+            this.balance = (1000.00);
         }
 
         //Properties//
@@ -44,16 +45,20 @@ namespace BankAccountProject
             set { this.withdrawal = value; }
         }
 
-        public double Interest
-        {
-            get { return this.interest; }
-            set { this.interest = value; }
-        }
-
         public double Balance
         {
             get { return this.balance; }
             set { this.balance = value; }
+        }
+
+        public string AccountType
+        {
+            get { return this.accountType; }
+        }
+
+        public string FullName
+        {
+            get { return this.firstName + "" + this.lastName; }
         }
 
 
@@ -61,54 +66,31 @@ namespace BankAccountProject
 
         //Methods
 
-        public void getBalance()
+        public virtual string chooseAccount()
         {
-            bool cycleAccount = true;
-            balance = (1000.00);
-
-            do
-            {
-                Console.WriteLine("Which type of action would you like to perform? Deposit or Withdraw?");
-                string userInput = (Console.ReadLine());
-                userInput = userInput.ToLower();
-                if (userInput == "deposit")
-                {
-                    Console.WriteLine("How much would you like to deposit?");
-                    deposit = double.Parse(Console.ReadLine());
-                    balance += deposit;
-                    Console.WriteLine("your current balance is: " + balance);
-
-                    Console.WriteLine();
-                    continue;
-                }
-                else if (userInput == "withdraw")
-                {
-                    Console.WriteLine("How much would you like to withdraw?");
-                    withdrawal = double.Parse(Console.ReadLine());
-
-                    if (balance <= 0)
-                    {
-                        Console.WriteLine("Insufficient funds. Unable to withdraw.");
-                        Console.WriteLine();
-                        continue;
-                    }
-                    else
-                    {
-                        balance -= withdrawal;
-                        Console.WriteLine("Your current balance is: " + balance);
-                        Console.WriteLine();
-                        continue;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("invalid response");
-                    Console.WriteLine();
-
-                }
-            } while (cycleAccount == true);
+            Console.WriteLine("Which account would you like to access today?\nChecking, Savings, or Reserve?");
+            string accountType = Console.ReadLine();
+            accountType = accountType.ToLower();
+            return accountType; 
+            
         }
+
+        public virtual double depositMethod(double depositAmount)
+        {
+            this.balance += depositAmount;
+            return balance;
+        }
+
+        public virtual double withdrawMethod(double withdrawAmount)
+        {
+            this.balance -= withdrawAmount;
+            return balance;
+        }
+
+
 
     }
 
 }
+
+

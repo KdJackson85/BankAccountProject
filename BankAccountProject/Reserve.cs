@@ -8,5 +8,11 @@ namespace BankAccountProject
 {
     class Reserve : Accounts
     {
+        //Reserve Fields
+        private double reserveBalance;
+        private double reserveInterest;
+
+        //Reserve Properties
+        
     }
 }
