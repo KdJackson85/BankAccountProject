@@ -9,20 +9,20 @@ namespace BankAccountProject
     class Accounts
     {
         //***Fields***
-        private double deposit;
-        private double withdrawal;
-        private double interest;
-        private double balance;
+        protected double deposit;
+        protected double withdrawal;
+        protected double interest;
+        protected double balance;
 
 
         //Constructors//
 
-        public Account()
+        public Accounts()
         {
             double balance = (1000.00);
         }
 
-        public Account(double deposit, double withdrawal, double interest)
+        public Accounts(double deposit, double withdrawal, double interest)
         {
             this.deposit = deposit;
             this.withdrawal = withdrawal;
