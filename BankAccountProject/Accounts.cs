@@ -22,6 +22,7 @@ namespace BankAccountProject
         public Accounts()
         {
             this.balance = (1000.00);
+            firstName = "User";
         }
 
         public Accounts(double deposit, double withdrawal, double interest)
@@ -56,9 +57,9 @@ namespace BankAccountProject
             get { return this.accountType; }
         }
 
-        public string FullName
+        public string FirstName
         {
-            get { return this.firstName + "" + this.lastName; }
+            get { return this.firstName; }
         }
 
 

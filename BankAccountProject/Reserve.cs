@@ -50,8 +50,17 @@ namespace BankAccountProject
 
         public override double withdrawMethod(double withdrawAmount)
         {
-            Console.WriteLine("How much would you like to withdraw?");
-            withdrawAmount = double.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("How much would you like to withdraw?");
+                withdrawAmount = double.Parse(Console.ReadLine());
+            }
+
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid expression.");
+
+            }
             if (reserveBalance <= 0)
             {
                 Console.WriteLine();

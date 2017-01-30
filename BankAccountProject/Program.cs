@@ -12,9 +12,11 @@ namespace BankAccountProject
         {
             Checking myChecking = new Checking();
             Savings mySavings = new Savings();
-            Reserve myReserve = new Reserve();
-            
+            Reserve myReserve = new Reserve(); 
             Accounts myAccount = new Accounts();
+
+            Console.WriteLine("Welcome to The First National Bank of Keith!");
+            Console.WriteLine();
             //bool used in do-while loop
             bool cycleAccount = true;
             //do-while loop cycles through program
