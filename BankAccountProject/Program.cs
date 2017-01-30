@@ -47,11 +47,61 @@ namespace BankAccountProject
                     }
                 
                 }
-                else
+              
+                else if(accountType=="savings")
                 {
-                    Console.WriteLine("Error: Invalid response.");
+                    mySavings.DisplayAccountStats();
+                    Console.WriteLine("What action would you like to take?\nWithdraw funds\nDeposit funds");
                     Console.WriteLine();
+                    string savingsAction = Console.ReadLine();
+                    savingsAction = savingsAction.ToLower();
+                    if (savingsAction == "withdraw")
+                    {
+                        mySavings.withdrawMethod(0);
+                        mySavings.DisplayAccountStats();
+                    }
+                    else if (savingsAction == "deposit")
+                    {
+                        mySavings.depositMethod(0);
+                        mySavings.DisplayAccountStats();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid response.");
+                        Console.WriteLine();
+                    }
+ 
                 }
+                else if(accountType=="reserve")
+                {
+                    myReserve.DisplayAccountStats();
+                    Console.WriteLine("What action would you like to take?\nWithdraw funds\nDeposit funds");
+                    Console.WriteLine();
+                    string reserveAction = Console.ReadLine();
+                    reserveAction = reserveAction.ToLower();
+                    if (reserveAction == "withdraw")
+                    {
+                        myReserve.withdrawMethod(0);
+                        myReserve.DisplayAccountStats();
+                    }
+                    else if (reserveAction == "deposit")
+                    {
+                        myReserve.depositMethod(0);
+                        myReserve.DisplayAccountStats();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid response.");
+                        Console.WriteLine();
+                    }
+
+                }
+
+                //else
+                //{
+                //    Console.WriteLine("Error: Invalid response.");
+                //    Console.WriteLine();
+                //}
             } while (cycleAccount == true);
 
 

@@ -54,6 +54,7 @@ namespace BankAccountProject
             withdrawAmount = double.Parse(Console.ReadLine());
             if (savingsBalance <= 0)
             {
+                Console.WriteLine();
                 Console.WriteLine("Insufficient funds. Unable to withdraw.");
                 Console.WriteLine();
 
