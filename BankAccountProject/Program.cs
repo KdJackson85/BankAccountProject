@@ -10,6 +10,7 @@ namespace BankAccountProject
     {
         static void Main(string[] args)
         {
+            //Objex
             Checking myChecking = new Checking();
             Savings mySavings = new Savings();
             Reserve myReserve = new Reserve(); 
@@ -25,7 +26,7 @@ namespace BankAccountProject
                 Console.WriteLine("Which account would you like to access today?\nChecking, Savings, or Reserve?");
                 string accountType = Console.ReadLine();
                 accountType = accountType.ToLower();
-                if (accountType == "checking")
+                if (accountType == "checking") //Checking account functions
                 {
                     myChecking.DisplayAccountStats();
                     Console.WriteLine("What action would you like to take?\nWithdraw funds\nDeposit funds");
@@ -50,7 +51,7 @@ namespace BankAccountProject
                 
                 }
               
-                else if(accountType=="savings")
+                else if(accountType=="savings")  //Savings Account functions
                 {
                     mySavings.DisplayAccountStats();
                     Console.WriteLine("What action would you like to take?\nWithdraw funds\nDeposit funds");
@@ -74,7 +75,7 @@ namespace BankAccountProject
                     }
  
                 }
-                else if(accountType=="reserve")
+                else if(accountType=="reserve")  //Reserve Account functions
                 {
                     myReserve.DisplayAccountStats();
                     Console.WriteLine("What action would you like to take?\nWithdraw funds\nDeposit funds");
@@ -98,12 +99,12 @@ namespace BankAccountProject
                     }
 
                 }
+                else
+                {
+                    Console.WriteLine("Error: Invalid response.");
+                    Console.WriteLine();
+                }
 
-                //else
-                //{
-                //    Console.WriteLine("Error: Invalid response.");
-                //    Console.WriteLine();
-                //}
             } while (cycleAccount == true);
 
 

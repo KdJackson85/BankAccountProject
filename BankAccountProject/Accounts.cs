@@ -14,7 +14,7 @@ namespace BankAccountProject
         private double balance;
         private string accountType;
         private string firstName;
-        private string lastName;
+      
 
 
         //Constructors//
@@ -66,12 +66,6 @@ namespace BankAccountProject
 
 
         //Methods
-
-        //public virtual string chooseAccount()
-        //{
-           
-            
-        //}
 
         public virtual double depositMethod(double depositAmount)
         {
