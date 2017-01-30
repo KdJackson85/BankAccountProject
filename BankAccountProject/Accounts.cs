@@ -66,14 +66,11 @@ namespace BankAccountProject
 
         //Methods
 
-        public virtual string chooseAccount()
-        {
-            Console.WriteLine("Which account would you like to access today?\nChecking, Savings, or Reserve?");
-            string accountType = Console.ReadLine();
-            accountType = accountType.ToLower();
-            return accountType; 
+        //public virtual string chooseAccount()
+        //{
+           
             
-        }
+        //}
 
         public virtual double depositMethod(double depositAmount)
         {
@@ -82,9 +79,17 @@ namespace BankAccountProject
         }
 
         public virtual double withdrawMethod(double withdrawAmount)
+        {  
+                this.balance -= withdrawAmount;
+                return balance;
+            
+        }
+
+        public virtual void DisplayAccountStats()
         {
-            this.balance -= withdrawAmount;
-            return balance;
+            Console.WriteLine();
+            Console.WriteLine(accountType);
+            Console.WriteLine(balance);
         }
 
 

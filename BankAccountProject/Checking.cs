@@ -33,21 +33,14 @@ namespace BankAccountProject
         public Checking() :base()
         {
             this.checkingBalance = 500;
+            this.accountTypeChecking = "Checking";
             
 
         }
 
         //Methods
 
-        public override string chooseAccount()
-        {
-            Console.WriteLine("Which account would you like to access today?\nChecking, Savings, or Reserve?");
-            string accountTypeChecking = Console.ReadLine();
-            accountTypeChecking = accountTypeChecking.ToLower();
-            return accountTypeChecking;
-
-        }
-
+       
         public override double depositMethod(double depositAmount)
         {
             Console.WriteLine("How much would you like to deposit?");
@@ -58,12 +51,31 @@ namespace BankAccountProject
 
         public override double withdrawMethod(double withdrawAmount)
         {
-            Console.WriteLine("How much would you like to deposit?");
+            Console.WriteLine("How much would you like to withdraw?");
             withdrawAmount = double.Parse(Console.ReadLine());
-            this.checkingBalance += withdrawAmount;
-            return base.depositMethod(withdrawAmount);
+            if (checkingBalance <= 0)
+            {
+                Console.WriteLine("Insufficient funds. Unable to withdraw.");
+                Console.WriteLine();
+
+                return checkingBalance;
+            }
+            else
+            {
+                this.checkingBalance -= withdrawAmount;
+                return base.depositMethod(withdrawAmount);
+            }
         }
-        
+
+
+        public override void DisplayAccountStats()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Account type: " + accountTypeChecking);
+            Console.WriteLine("Current Balance: " + "$" + checkingBalance);
+            Console.WriteLine();
+        }
+
 
     }
 
